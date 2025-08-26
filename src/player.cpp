@@ -1,6 +1,7 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include "command.h"
+#include "debug.h"
 #include "game.h"
 #include "gui.h"
 #include "player.h"
@@ -31,6 +32,7 @@ void Player::Run_Command(Command &c)
 
 		case Command::Exit_Game: gameplay->Set_State(Game::Exit); break;
 		case Command::Remake_Level: world->Remake_Current_Level(); break;
+		case Command::Debug_Menu: debug.Menu(); break;
 		default: break;
 	}
 }

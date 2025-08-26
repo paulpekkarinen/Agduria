@@ -15,6 +15,7 @@ public:
 		Move_South,
 		Exit_Game,
 		Remake_Level,
+		Debug_Menu,
 		Unknown,
 		Max_Commands
 	};

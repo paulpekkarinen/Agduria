@@ -7,7 +7,19 @@ Gui::Gui(int w, int h)
 	: width(w), height(h)
 {
 
+}
 
+void Gui::Clear_Line(int y, int color)
+{
+	Set_Font_Color(color);
+	GotoXY(0, y);
+	for (int x=0; x<width; x++)
+		Put_Char(' ');
+}
+
+void Gui::Default_Color()
+{
+	Set_Font_Color(Color::White);
 }
 
 void Gui::Set_Font_Color(int c)
@@ -53,6 +65,12 @@ int Gui::Write_Text(const char *txt)
 	}
 
 	return t;
+}
+
+int Gui::Write_Text_To(int x, int y, const char *txt)
+{
+	GotoXY(x, y);
+	return Write_Text(txt);
 }
 
 void Gui::Clear_Screen()

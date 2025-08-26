@@ -6,6 +6,11 @@
 
 class Debug
 {
-public:
+private:
 	void Show_Terminal_Info();
+
+public:
+	void Menu();
 };
+
+extern Debug debug;

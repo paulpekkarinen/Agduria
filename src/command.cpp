@@ -17,6 +17,7 @@ const Command_Data cmd_data[Command::Max_Commands]=
 	{"Move south", KEY_DOWN},
 	{"Exit game", 'Q'},
 	{"Remake level", 'R'},
+	{"Debug menu", 'D'},
 	{"Unknown", '?'}
 };
 

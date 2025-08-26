@@ -7,5 +7,9 @@
 class Display
 {
 public:
+	void Header(const char *txt);
 	void Version();
 };
+
+extern Display display;
+

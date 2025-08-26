@@ -44,10 +44,32 @@ int main(int argc, char *argv[])
 	//create random number generator
 	rng=new Random_Generator;
 
-	//get the size of the console window and store the size to gui class
+	//get the size of the console window and compare it to preferred size
+	const int pref_w=80;
+	const int pref_h=24;
+	
 	int w, h;
 	getmaxyx(stdscr, h, w);
-	gui=new Gui(w, h);
+
+	if (w<pref_w || h<pref_h)
+	{
+		printf("The terminal size is less than 80 x 24. Stop.");
+		return EXIT_FAILURE;
+	}
+	
+	gui=new Gui(pref_w, pref_h);
+
+	/* note: don't bother for now, but ask this later
+	if (w>pref_w || h>pref_h)
+	{
+		gui->Clear_Screen();
+		gui->Write_Text("The terminal size is larger than 80 x 24. Continue? (y/n)");
+		if (getch()!='y')
+		{
+			delete gui;
+			return EXIT_SUCCESS;
+		}
+	}*/
 
 	//create keyboard handling classes
 	keyboard=new Keyboard;

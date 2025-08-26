@@ -1,5 +1,6 @@
 backup/
 obj/
+*.o
 agduria
 *.py
 
