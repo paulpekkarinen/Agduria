@@ -16,6 +16,7 @@ public:
 		Exit_Game,
 		Remake_Level,
 		Debug_Menu,
+		Keyboard_Commands,
 		Unknown,
 		Max_Commands
 	};
@@ -28,6 +29,9 @@ public:
 	Command(int c);
 
 	int Get() const { return cmd; }
+	const char *Get_Name();
 
 	int Get_Default_Keycode();
+	bool Redraw_After() const;
 };
+

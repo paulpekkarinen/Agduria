@@ -20,7 +20,8 @@ struct Keycode
 
 	//operator < is needed for std::map
 	friend bool operator<(const Keycode& l, const Keycode& r)
-    {
-		return (l.key < r.key);
-    }
+	{
+    	return (l.key < r.key);
+	}
 };
+

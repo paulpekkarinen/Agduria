@@ -4,6 +4,7 @@
 #include "debug.h"
 #include "display.h"
 #include "gui.h"
+#include "input.h"
 
 Debug debug; //global instance
 
@@ -14,9 +15,10 @@ void Debug::Menu()
 	while (loop)
 	{
 		display.Header("Debug commands");
+		display.Footer("Space");
 
 		gui->Default_Color();
-		gui->Write_Text_To(0, 2,
+		gui->Write_Text_To(0, Display::Text_Content_Y,
 			"t) terminal info");
 
 		const int ch=getch();
@@ -24,7 +26,7 @@ void Debug::Menu()
 		switch (ch)
 		{
 			case 't': Show_Terminal_Info(); break;
-			case KEY_ESC: loop=false; break;
+			case ' ': loop=false; break;
 			default: break;
 		}
 	}
@@ -45,5 +47,6 @@ void Debug::Show_Terminal_Info()
 		gui->Write_Text(c.Get_Name());
 	}
 
-	getch();
+	wait_footer_key("Space");
 }
+

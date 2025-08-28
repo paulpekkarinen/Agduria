@@ -23,12 +23,17 @@ class Keybindings
 private:
 	std::map<Keycode, int> keys;
 
+	typedef std::map<Keycode, int>::iterator mapiter;
+	
 	void Insert_Command(const Key_And_Command &kac);
 
 public:
 	Keybindings();
 
 	int Get_Command(const Keycode &kc);
+
+	void Show_List();
 };
 
 extern Keybindings *keybinds;
+

@@ -1,6 +1,7 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include "command.h"
+#include "display.h"
 #include "game.h"
 #include "gui.h"
 #include "keybinds.h"
@@ -32,6 +33,7 @@ Game::~Game()
 void Game::Run()
 {
 	bool loop=true;
+	bool redraw=true;
 	Command cmd;
 
 	gui->Clear_Screen();
@@ -40,13 +42,18 @@ void Game::Run()
 
 	while (loop)
 	{
-		world->Show();
+		if (redraw)
+			display.Full_Gameview();
+		else
+			world->Show();
 
 		//get command from keyboard code
 		cmd=keybinds->Get_Command(keyboard->Get_Key());
 
 		//process the command
 		player->Run_Command(cmd);
+
+		redraw=cmd.Redraw_After();
 
 		if (state==Exit)
 			loop=false;
