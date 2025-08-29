@@ -8,6 +8,7 @@ class Debug
 {
 private:
 	void Show_Terminal_Info();
+	void View_Level();
 
 public:
 	void Menu();

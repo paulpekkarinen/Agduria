@@ -21,8 +21,8 @@ public:
 
 	virtual void Clear_Map() = 0;
 	virtual void Draw() = 0;
+	int Move(int dir);
+	int Set_Location(const Coords &c);
 	virtual void Set_Map() = 0;
 	void Reset_Location(const Coords &c);
-	int Set_Location(const Coords &c);
-	int Move(int dir);
 };

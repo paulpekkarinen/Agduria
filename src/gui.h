@@ -25,6 +25,7 @@ public:
 	void Clear_Line(int y, int color);
 	void Clear_Screen();
 	void Default_Color();
+	void Goto_Last_Line();
 	void GotoXY(int x, int y);
 	void Put_Char(char c);
 	void Put_Char(char c, int color);

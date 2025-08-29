@@ -15,6 +15,10 @@ class Level;
 class Gameview : public Tile_Map
 {
 private:
+	//how close to the edge until gameview is scrolled
+	static const int Horizontal_Limit=10;
+	static const int Vertical_Limit=6;
+
 	Level *lvl; //current level
 	Point camera;
 	Rectangle view;
@@ -26,7 +30,9 @@ public:
 	void Put_Item(Item *i, const Coords &c);
 	void Put_Object(Object *o, const Coords &c);
 
-	void Show();
+	void Show(const Coords &actor);
+	void Show_Debug_Location();
 };
 
 extern Gameview *gameview;
+

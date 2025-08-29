@@ -1,15 +1,18 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
+#include <string>
 #include "gameview.h"
 #include "gui.h"
 #include "level.h"
 #include "terrain.h"
 #include "tile.h"
 
+using std::string;
+
 Gameview::Gameview(Level *l, const Rectangle &r)
 	: Tile_Map(l->Get_Width(), l->Get_Height()), lvl(l), view(r)
 {
-
+	camera.Set_Location(5, 5); //note: test location
 }
 
 //If 'c' is outside the level this has no effect since the object
@@ -32,7 +35,7 @@ void Gameview::Put_Object(Object *o, const Coords &c)
 	t.obj=o;
 }
 
-void Gameview::Show()
+void Gameview::Show(const Coords &actor)
 {
 	Coords c(camera.x, camera.y);
 
@@ -52,3 +55,12 @@ void Gameview::Show()
 		c.x=camera.x;
 	}
 }
+
+void Gameview::Show_Debug_Location()
+{
+	gui->Goto_Last_Line();
+	gui->Default_Color();
+
+	gui->Write_Text("Camera: ");
+}
+

@@ -11,5 +11,5 @@ Region::Region(int t)
 
 Rectangle Region::Get_Random_Size()
 {
-	return Rectangle(0, 0, 80, 25);
+	return Rectangle(0, 0, 100, 40);
 }

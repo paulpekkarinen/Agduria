@@ -21,6 +21,7 @@ struct Coords
 	void Move_Direction(int d);
 	void Move_Opposite_Direction(int d);
 	void Set(int sx, int sy, int sz);
+	void Set(int sx, int sy);
 
 	Coords& operator=(const Coords& r)
 	{

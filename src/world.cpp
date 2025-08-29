@@ -144,5 +144,6 @@ void World::Remake_Current_Level()
 
 void World::Show()
 {
-	gameview->Show();
+	const Coords &pc=player->Get_Location();
+	gameview->Show(pc);
 }

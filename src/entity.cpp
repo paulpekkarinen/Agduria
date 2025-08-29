@@ -11,6 +11,11 @@ Entity::Entity(const Coords &c)
 
 }
 
+Coords Entity::Get_Location()
+{
+	return location;
+}
+
 void Entity::Reset_Location(const Coords &c)
 {
 	location=c;

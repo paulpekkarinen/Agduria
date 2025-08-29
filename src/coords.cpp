@@ -36,3 +36,9 @@ void Coords::Set(int sx, int sy, int sz)
 {
 	x=sx; y=sy; z=sz;
 }
+
+void Coords::Set(int sx, int sy)
+{
+	x=sx; y=sy;
+}
+

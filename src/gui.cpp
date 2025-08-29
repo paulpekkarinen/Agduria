@@ -27,6 +27,11 @@ void Gui::Set_Font_Color(int c)
 	attron(COLOR_PAIR(c));
 }
 
+void Gui::Goto_Last_Line()
+{
+	move(height-1, 0);
+}
+
 void Gui::GotoXY(int x, int y)
 {
 	move(y, x);
