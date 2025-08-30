@@ -2,6 +2,7 @@
 
 #include <curses.h>
 #include "display.h"
+#include "input.h"
 
 void wait_key()
 {

@@ -6,7 +6,7 @@ Roguelike game using curses library for ASCII graphics. This project started as 
 
 ### Requirements
 
-You need some type of compatible curses library (curses.h) to compile and run this game. The terminal must support 16 or more colors and 80 x 24 characters size. The minimum required C++ version is C++17.
+You need some type of compatible curses library (curses.h) to compile and run this game. The terminal must support 16 or more colors and 80 x 24 characters size. The minimum required C++ version is C++20.
 
 ### Linux
 
@@ -23,7 +23,13 @@ Using an IDE create a console project, add all source files to the project and c
 
 ## Coding style
 
-Agduria is object-oriented C++ with some C-style functions. The preferred tab size is 4, using a tab character.
+Agduria is object-oriented C++ with some C-style functions. The preferred tab size is 4, using a tab character. Naming conventions are:
+
+```
+enum, class, struct, member functions: Title_Case
+define: MACRO_CASE
+everything else: lowercase or snake_case
+```
 
 ## More information
 

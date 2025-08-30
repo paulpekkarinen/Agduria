@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -Wall -g -std=c++17
+CXXFLAGS := -Wall -g -std=c++20 -Wshadow -Wunreachable-code -Wredundant-decls -Wmissing-declarations
 SRCDIR := src
 OBJDIR := obj
 
