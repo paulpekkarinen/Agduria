@@ -13,10 +13,13 @@ public:
 		Move_East,
 		Move_North,
 		Move_South,
+		
 		Exit_Game,
 		Remake_Level,
 		Debug_Menu,
 		Keyboard_Commands,
+		Center_View,
+
 		Unknown,
 		Max_Commands
 	};

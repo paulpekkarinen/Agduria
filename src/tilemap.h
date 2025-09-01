@@ -22,5 +22,8 @@ public:
 	Tile_Map(int w, int h);
 	~Tile_Map();
 
+	int Get_Width() const { return width; }
+	int Get_Height() const { return height; }
+
 	Tile &Get_Tile(const Coords &c);
 };

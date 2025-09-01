@@ -1,6 +1,7 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include "gameview.h"
+#include "gui.h"
 #include "level.h"
 #include "tile.h"
 
@@ -15,7 +16,10 @@ void Level::Display_Tile(const Coords &c, Gameview *g)
 	Tile &t=g->Get_Tile(c);
 
 	if (t.vision==Tile::Outside)
+	{
+		gui->Put_Char('?');
 		return;
+	}
 
 	//show possible game object here
 	if (t.Display())

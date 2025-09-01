@@ -16,10 +16,13 @@ const Command_Data cmd_data[Command::Max_Commands]=
 	{"Move east", KEY_RIGHT, false},
 	{"Move north", KEY_UP, false},
 	{"Move south", KEY_DOWN, false},
+
 	{"Exit game", 'Q', false},
 	{"Remake level", 'R', true},
 	{"Debug menu", 'D', true},
 	{"Keyboard commands", 'K', true},
+	{"Center view", 'C', false},
+
 	{"Unknown", '?', false}
 };
 

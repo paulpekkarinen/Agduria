@@ -4,6 +4,7 @@
 #include "debug.h"
 #include "display.h"
 #include "game.h"
+#include "gameview.h"
 #include "gui.h"
 #include "player.h"
 #include "species.h"
@@ -35,6 +36,7 @@ void Player::Run_Command(Command &c)
 		case Command::Remake_Level: world->Remake_Current_Level(); break;
 		case Command::Debug_Menu: debug.Menu(); break;
 		case Command::Keyboard_Commands: display.Keybinds(); break;
+		case Command::Center_View: gameview->Center(Get_Location()); break;
 		default: break;
 	}
 }

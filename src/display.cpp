@@ -58,6 +58,7 @@ void Display::Keycode_Text(int key)
 		case KEY_RIGHT: ch="Right"; break;
 		case KEY_DOWN: ch="Down"; break;
 		case KEY_UP: ch="Up"; break;
+		case ' ': ch="Space"; break;
 		default: ch=keyname(key); break;
 	}
 	
@@ -73,7 +74,7 @@ void Display::Keybinds()
 
 	keybinds->Show_List();
 
-	Footer("Space");
+	Footer("Backspace");
 	wait_key();
 }
 

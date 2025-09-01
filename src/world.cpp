@@ -127,6 +127,7 @@ void World::Arrival()
 	//put player to a random place in some floor
 	Coords c=current_level->Get_Random_Mask_Place(Mask::Floor);
 	player->Reset_Location(c);
+	gameview->Center(c);
 }
 
 void World::Enter()

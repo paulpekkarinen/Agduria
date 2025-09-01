@@ -22,7 +22,7 @@ struct Point
 		return *this;
 	}
 
-	bool operator==(const Point& r)
+	bool operator==(const Point& r) const
 	{
 		if(this == &r) return true;
 		if (x==r.x && x==r.y) return true;
