@@ -1,5 +1,6 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
+#include <list>
 #include <utility>
 #include "codex.h"
 #include "command.h"
@@ -7,6 +8,7 @@
 #include "gui.h"
 #include "keybinds.h"
 
+using std::list;
 using std::map;
 using std::pair;
 
@@ -49,19 +51,28 @@ void Keybindings::Show_List()
 
 	gui->Default_Color();
 
-	mapiter it=keys.end();
-	--it; //skip last (unknown) command
+	//create list to list commands, because std::map contains
+	//items in 'random' order, this list can be also sorted
+	list<Key_And_Command> keylist;
 
-	while (it!=keys.begin())
+	for (mapiter it=keys.begin(); it!=keys.end(); ++it)
+	{
+		if (it->second<Command::Unknown)
+		{
+			keylist.push_back(Key_And_Command(it->first, it->second));
+		}
+	}
+
+	for (list<Key_And_Command>::iterator it=keylist.begin();
+		it!=keylist.end(); ++it)
 	{
 		gui->GotoXY(x, y);
-		display.Keycode_Text(it->first.key);
-		
+		display.Keycode_Text((*it).keycode.key);
+			
 		gui->GotoXY(x+x_offset, y);
-		Command c(it->second);
+		Command c((*it).cmd);
 		gui->Write_Text(c.Get_Name());
 		y++;
-		--it;
 	}
 }
 

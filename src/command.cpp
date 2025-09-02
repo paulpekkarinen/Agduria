@@ -21,7 +21,7 @@ const Command_Data cmd_data[Command::Max_Commands]=
 	{"Remake level", 'R', true},
 	{"Debug menu", 'D', true},
 	{"Keyboard commands", 'K', true},
-	{"Center view", 'C', false},
+	{"Center view", ' ', false},
 
 	{"Unknown", '?', false}
 };
