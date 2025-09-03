@@ -1,13 +1,17 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include <curses.h>
+#include <format>
 #include <string>
 #include "display.h"
+#include "element.h"
 #include "input.h"
 #include "keybinds.h"
+#include "tile.h"
 #include "gui.h"
 #include "world.h"
 
+using std::format;
 using std::string;
 
 Display display; //global instance
@@ -81,5 +85,32 @@ void Display::Keybinds()
 void Display::Version()
 {
 	gui->Write_Text("Version 0.0.1");
+}
+
+void Display::Tile_Info(Tile &t, Element &e)
+{
+	const char *p=0;
+
+	if (t.being!=0)
+	{
+		p="Creature";
+	}
+
+	if (t.obj!=0)
+	{
+		p="Object";
+	}
+
+	if (t.item!=0)
+	{
+		p="Item";
+	}
+
+	if (p==0)
+		p=e.Get_Name();
+
+	string s=format("'{}' Room: {}     ", p, e.room_id);
+
+	gui->Write_Text(s.c_str());
 }
 

@@ -4,6 +4,9 @@
 
 #pragma once
 
+struct Element;
+struct Tile;
+
 class Display
 {
 public:
@@ -15,6 +18,7 @@ private:
 	void Centered_Text(const char *txt, int line, int color);
 	
 public:
+	void Tile_Info(Tile &t, Element &e);
 	void Footer(const char *txt);
 	void Full_Gameview(); //redraw gameview
 	void Header(const char *txt);

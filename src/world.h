@@ -27,6 +27,8 @@ public:
 	World();
 	~World();
 
+	Level *Get_Current_Level() { return current_level; }
+
 	void Arrival();
 	void Enter();
 	void Remake_Current_Level();

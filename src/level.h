@@ -18,5 +18,6 @@ private:
 public:
 	Level(int w, int h, int th, int id);
 
-	void Display_Tile(const Coords &c, Gameview *g);
+	int Get_Level_Id() const { return level_id; }
 };
+

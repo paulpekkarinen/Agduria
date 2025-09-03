@@ -26,7 +26,8 @@ private:
 	void Clamp_Camera_X();
 	void Clamp_Camera_Y();
 	void Clamp_Camera();
-
+	void Display_Tile(const Coords &c);
+	
 public:
 	Gameview(Level *l, const Rectangle &r);
 
@@ -40,7 +41,7 @@ public:
 	void Put_Object(Object *o, const Coords &c);
 
 	void Show(const Coords &actor);
-	void Show_Debug_Location(const Coords &actor);
+	void Show_Debug_Location(const Coords &c);
 };
 
 extern Gameview *gameview;

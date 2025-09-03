@@ -1,12 +1,20 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include <curses.h>
+#include <format>
+#include <string>
 #include "debug.h"
 #include "display.h"
 #include "gameview.h"
 #include "gui.h"
 #include "input.h"
+#include "level.h"
 #include "player.h"
+#include "terrain.h"
+#include "world.h"
+
+using std::format;
+using std::string;
 
 Debug debug; //global instance
 
@@ -57,7 +65,9 @@ void Debug::Show_Terminal_Info()
 
 void Debug::View_Level()
 {
-	display.Header("View level");
+	Level *lvl=world->Get_Current_Level();
+	string ts=format("Level id: {}", lvl->Get_Level_Id());
+	display.Header(ts.c_str());
 
 	bool loop=true;
 	Coords pc=player->Get_Location();
@@ -82,6 +92,8 @@ void Debug::View_Level()
 			case KEY_LEFT: pc.x--; break;
 			case KEY_RIGHT: pc.x++; break;
 			case KEY_BACKSPACE: loop=false; break;
+			case 'f': lvl->Put_Terrain(Terrain::Cave_Floor, pc.x, pc.y); break;
+			case 'w': lvl->Put_Terrain(Terrain::Wall, pc.x, pc.y); break;
 			default: break;
 		}
 

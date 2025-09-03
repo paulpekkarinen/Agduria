@@ -21,9 +21,6 @@ private:
 	void Put_Data(int pos, int type);
 	void Put_Room_Mask(int x, int y, int id);
 
-protected:
-	void Display_Terrain(int x, int y);
-
 public:
 	Chart(int w, int h);
 	~Chart();
@@ -46,6 +43,7 @@ public:
 	void Clear();
 	void Clear(int v);
 
+	void Display_Terrain(int x, int y);
 	void Draw_Box(int type, const Rectangle &a);
 	void Draw_Box_Over(int type, int over, const Rectangle &a);
 	void Draw_Ellipse(int xc, int yc, int radius_x, int radius_y, int type);

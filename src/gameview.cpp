@@ -2,6 +2,8 @@
 
 #include <format>
 #include <string>
+#include "display.h"
+#include "element.h"
 #include "gameview.h"
 #include "gui.h"
 #include "level.h"
@@ -42,9 +44,6 @@ void Gameview::Show(const Coords &actor)
 	const int mapwidth=lvl->Get_Width();
 	const int mapheight=lvl->Get_Height();
 
-	int dx=0;
-	int dy=0;
-	
 	//check horizontal size
 	const int a=view.width-mapwidth;
 	if (a>=0) //smaller than view: center
@@ -54,7 +53,7 @@ void Gameview::Show(const Coords &actor)
 	else //bigger than view
 	{
 		//scroll view if near edges
-		dx=actor.x-camera.x;
+		const int dx=actor.x-camera.x;
 		
 		if (dx<Horizontal_Limit)
 		{
@@ -80,7 +79,7 @@ void Gameview::Show(const Coords &actor)
 	else
 	{
 		//scroll view if near edges
-		dy=actor.y-camera.y;
+		const int dy=actor.y-camera.y;
 
 		if (dy<Vertical_Limit)
 		{
@@ -106,7 +105,7 @@ void Gameview::Show(const Coords &actor)
 
 		for (int x=view.x; x<view.x+view.width; x++)
 		{
-			lvl->Display_Tile(c, this);
+			Display_Tile(c);
 			c.x++; //increase level location also
 		}
 
@@ -116,15 +115,19 @@ void Gameview::Show(const Coords &actor)
 	}
 }
 
-void Gameview::Show_Debug_Location(const Coords &actor)
+void Gameview::Show_Debug_Location(const Coords &c)
 {
-	gui->Goto_Last_Line();
 	gui->Default_Color();
 
+	gui->Goto_Last_Line();
 	string s=format("Pos: {},{} Camera: {}, {}   ",
-		actor.x, actor.y, camera.x, camera.y);
-
+		c.x, c.y, camera.x, camera.y);
 	gui->Write_Text(s.c_str());
+
+	Tile &t=Get_Tile(c);
+	Element e=lvl->Get_Terrain(c.x, c.y);
+
+	display.Tile_Info(t, e);	
 }
 
 void Gameview::Clamp_Camera_X()
@@ -170,5 +173,23 @@ Rectangle Gameview::Get_Level_Size()
 Point Gameview::Get_Screen_Location(const Coords &c)
 {
 	return Point((c.x-camera.x)+view.x, (c.y-camera.y)+view.y);
+}
+
+void Gameview::Display_Tile(const Coords &c)
+{
+	Tile &t=Get_Tile(c);
+
+	if (t.vision==Tile::Outside)
+	{
+		gui->Put_Char('?');
+		return;
+	}
+
+	//show possible game object here
+	if (t.Display())
+		return;
+
+	//last display terrain if no objects were shown
+	lvl->Display_Terrain(c.x, c.y);
 }
 

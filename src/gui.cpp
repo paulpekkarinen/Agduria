@@ -87,3 +87,9 @@ void Gui::Update_Screen()
 {
 	refresh();
 }
+
+void Gui::Goto_First_Line()
+{
+	move(0, 0);
+}
+
