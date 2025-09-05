@@ -12,7 +12,7 @@
 #include "world.h"
 
 Player::Player(const Coords &c)
-	: Creature(c, Species::Humanoid)
+	: Creature(c, Species::Human)
 {
 
 }
