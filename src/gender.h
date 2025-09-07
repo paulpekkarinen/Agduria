@@ -7,7 +7,8 @@
 class Gender
 {
 public:
-	enum Gender_Type {None, Male, Female, Both, Max_Genders};
+	enum Gender_Type {None, Male, Female, Both, Hermaphrodite,
+		Max_Genders};
 
 private:
 	int gender;

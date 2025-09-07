@@ -11,13 +11,15 @@ class Family
 public:
 	enum Family_Type {Insect, Bird, Canine, Mariner, Mammal,
 		Feline, Humanoid, Testudinidae, Reptile, Fungi,
-		Phantom, Undead, Vermes, Max_Family_Types};
+		Phantom, Undead, Vermes, Max_Families};
 
 private:
 	int family;
 
 public:
 	Family() : family(Bird) { }
-	Family(int f);	
+	Family(int f);
+
+	int Get_Preferred_Gender();
 };
 

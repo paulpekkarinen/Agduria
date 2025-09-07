@@ -1,6 +1,7 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
 #include "decide.h"
+#include "gender.h"
 #include "rng.h"
 #include "way.h"
 
@@ -44,3 +45,19 @@ int get_random_direction()
 {
 	return rng->Get_Min_Max(Way::North, Way::North_West);
 }
+
+int get_random_gender(int preferred)
+{
+	int rv=preferred;
+
+	if (rv==Gender::Both)
+	{
+		if (rng->Rarely())
+			rv=Gender::Female;
+		else
+			rv=Gender::Male;	
+	}
+
+	return rv;
+}
+

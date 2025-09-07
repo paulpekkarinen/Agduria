@@ -12,7 +12,8 @@ const Gender_Data gender_data[Gender::Max_Genders]=
 	{"none"},
 	{"male"},
 	{"female"},
-	{"hermaphrodite"}
+	{"both"}, //can be male or female (gonochoric)
+	{"hermaphrodite"} //male and female at the same time
 };
 
 Gender::Gender(int g)
