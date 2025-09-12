@@ -4,10 +4,12 @@
 
 #pragma once
 
+#include "family.h"
+
 //Species are the main division of creatures which can have subtypes.
 //Some species name can't be used as it is, a creature derived from that
 //subtype has the proper name, like all humanoids.
-class Species
+class Species : public Family
 {
 public:
 	enum Species_Type {Ant, Bee, Centipede, Duck, Eye, Fox, Gremlin,
@@ -22,8 +24,10 @@ private:
 	int spec;
 
 public:
-	Species() : spec(Troll) { }
+	Species();
 	Species(int s);
+
+	const char *Get_Name();
 
 	void Display();
 };

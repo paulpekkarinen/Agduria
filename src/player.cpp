@@ -8,6 +8,7 @@
 #include "gui.h"
 #include "player.h"
 #include "species.h"
+#include "test.h"
 #include "way.h"
 #include "world.h"
 
@@ -37,6 +38,9 @@ void Player::Run_Command(Command &c)
 		case Command::Debug_Menu: debug.Menu(); break;
 		case Command::Keyboard_Commands: display.Keybinds(); break;
 		case Command::Center_View: gameview->Center(Get_Location()); break;
+
+		case Command::Run_Test: run_current_test(); break;
+		
 		default: break;
 	}
 }

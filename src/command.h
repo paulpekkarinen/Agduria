@@ -20,6 +20,8 @@ public:
 		Keyboard_Commands,
 		Center_View,
 
+		Run_Test,
+
 		Unknown,
 		Max_Commands
 	};

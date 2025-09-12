@@ -23,6 +23,8 @@ const Command_Data cmd_data[Command::Max_Commands]=
 	{"Keyboard commands", 'K', true},
 	{"Center view", ' ', false},
 
+	{"Run test", 'T', true},
+
 	{"Unknown", '?', false}
 };
 

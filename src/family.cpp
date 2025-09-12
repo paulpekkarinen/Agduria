@@ -31,6 +31,11 @@ Family::Family(int f)
 	
 }
 
+const char *Family::Get_Family_Name()
+{
+	return family_data[family].name;
+}
+
 int Family::Get_Preferred_Gender()
 {
 	int rv;

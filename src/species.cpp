@@ -69,10 +69,21 @@ Species_Data species_type[Species::Max_Species_Types]=
 	{"lizard", ':', Family::Reptile}
 };
 
+Species::Species()
+	: Family(species_type[Troll].family), spec(Troll)
+{
+	
+}
+	
 Species::Species(int s)
-	: spec(s)
+	: Family(species_type[s].family), spec(s)
 {
 
+}
+
+const char *Species::Get_Name()
+{
+	return species_type[spec].name;
 }
 
 //displays only the ascii letter of the creature, color has to be set
