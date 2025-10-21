@@ -10,12 +10,13 @@ struct Age_Data
 
 const Age_Data age_data[Age::Max_Ages]=
 {
-	{"na", 0},
+	{"average", 0}, //not displayed, normal age
 	{"cub", 1},
 	{"pup", 1},
-	{"hatchling", 1},
+	{"hatchling", 1}, //from an egg
 	{"baby", -1},
-	{"senior", 0},
+	{"old", -1},
+	{"senior", -1},
 	{"ancient", -1}
 };
 

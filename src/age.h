@@ -7,7 +7,8 @@
 class Age
 {
 public:
-	enum Age_Id {None, Cub, Pup, Hatchling, Baby, Senior, Ancient, Max_Ages};
+	enum Age_Id {Average, Cub, Pup, Hatchling, Baby, Old, Senior, Ancient,
+		Max_Ages};
 
 private:
 	int age;

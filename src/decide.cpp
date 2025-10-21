@@ -1,8 +1,10 @@
 //Agduria - Copyright 2009-2025 Paul Pekkarinen
 
+#include "age.h"
 #include "decide.h"
 #include "gender.h"
 #include "rng.h"
+#include "species.h"
 #include "way.h"
 
 const int card_dirs[4]={Way::North, Way::South, Way::East, Way::West};
@@ -32,6 +34,35 @@ int get_opposite_direction(int d)
 		case Way::West: rv=Way::East; break;
 		default: rv=Way::None; break;
 	}
+	return rv;
+}
+
+int get_random_age(int family)
+{
+	int rv=Age::Average; //default age
+
+	switch (family)
+	{
+		case Family::Canine:
+			if (rng->Rarely()) rv=Age::Pup;
+			else if (rng->Very_Rarely()) rv=Age::Old;
+		break;
+		case Family::Feline:
+			if (rng->Rarely()) rv=Age::Cub;
+			else if (rng->Very_Rarely()) rv=Age::Old;
+		break;
+		case Family::Bird:
+			if (rng->Rarely()) rv=Age::Hatchling;
+		break;
+		case Family::Reptile:
+			if (rng->Very_Rarely()) rv=Age::Baby;
+		break;
+		case Family::Humanoid:
+			if (rng->Very_Rarely()) rv=Age::Old;
+		break;
+		default: break;
+	}
+
 	return rv;
 }
 

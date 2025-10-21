@@ -22,7 +22,7 @@ Family_Data family_data[Family::Max_Families]=
 	{"Fungi"},
 	{"Phantom"},
 	{"Undead"},
-	{"Vermes"}
+	{"Vermes"} //worms and snakes
 };
 
 Family::Family(int f)
