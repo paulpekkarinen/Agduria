@@ -1,4 +1,4 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) 2009-2026 Paul K. Pekkarinen
 
 //Unit main: Entry point of the program.
 

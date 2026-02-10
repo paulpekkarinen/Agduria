@@ -4,9 +4,11 @@
 
 #pragma once
 
+class Species;
+
 int get_nearest_random_direction(int source_dir);
 int get_opposite_direction(int d);
-int get_random_age(int family);
+int get_random_age(Species &sp);
 int get_random_cardinal_direction();
 int get_random_direction();
 int get_random_gender(int preferred);

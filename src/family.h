@@ -20,6 +20,7 @@ public:
 	Family() : family(Bird) { }
 	Family(int f);
 
+	int Get_Family() const { return family; }
 	const char *Get_Family_Name();
 	int Get_Preferred_Gender();
 };

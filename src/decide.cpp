@@ -37,30 +37,44 @@ int get_opposite_direction(int d)
 	return rv;
 }
 
-int get_random_age(int family)
+int get_random_age(Species &sp)
 {
-	int rv=Age::Average; //default age
+	if (sp.Is_Ancient())
+		return Age::Ancient;
 
-	switch (family)
+	int rv=Age::Average; //default age
+	const bool rare=rng->Rarely();
+	const bool veryr=rng->Very_Rarely();
+
+	switch (sp.Get_Family())
 	{
 		case Family::Canine:
-			if (rng->Rarely()) rv=Age::Pup;
-			else if (rng->Very_Rarely()) rv=Age::Old;
+			if (rare) rv=Age::Pup;
+			else if (veryr) rv=Age::Old;
 		break;
 		case Family::Feline:
-			if (rng->Rarely()) rv=Age::Cub;
-			else if (rng->Very_Rarely()) rv=Age::Old;
+			if (rare) rv=Age::Cub;
+			else if (veryr) rv=Age::Old;
 		break;
 		case Family::Bird:
-			if (rng->Rarely()) rv=Age::Hatchling;
+			if (rare) rv=Age::Hatchling;
 		break;
+		case Family::Mammal:
 		case Family::Reptile:
-			if (rng->Very_Rarely()) rv=Age::Baby;
+			if (veryr) rv=Age::Baby;
 		break;
-		case Family::Humanoid:
-			if (rng->Very_Rarely()) rv=Age::Old;
+		default:
+			if (veryr) rv=Age::Old;
 		break;
-		default: break;
+	}
+
+	if (rv==Age::Old)
+	{
+		if (sp.Can_Be_Senior() && rng->Rarely())
+			rv=Age::Senior;
+
+		if (sp.Can_Be_Ancient() && rng->Very_Rarely())
+			rv=Age::Ancient;
 	}
 
 	return rv;

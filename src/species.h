@@ -29,5 +29,9 @@ public:
 
 	const char *Get_Name();
 
+	bool Can_Be_Ancient();
+	bool Can_Be_Senior();
+	bool Is_Ancient();
+
 	void Display();
 };

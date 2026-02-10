@@ -92,3 +92,63 @@ void Species::Display()
 {
 	gui->Put_Char(species_type[spec].ascii);
 }
+
+bool Species::Can_Be_Ancient()
+{
+	bool rv;
+	
+	switch (spec)
+	{
+		case Dragon:
+		case Giant:
+		case Komodo:
+		case Spirit:
+		case Turtle:
+		case Vampire:
+			rv=true;
+		break;
+		default: rv=false; break;
+	}
+	
+	return rv;
+}
+	
+bool Species::Can_Be_Senior()
+{
+	bool rv;
+	
+	switch (spec)
+	{
+		case Ape:
+		case Centaur:
+		case Elf:
+		case Human:
+		case Lion:
+		case Troll:
+		case Zombie:
+			rv=true;
+		break;
+		default: rv=false; break;
+	}
+	
+	return rv;
+}
+
+//These are always ancient.
+bool Species::Is_Ancient()
+{
+	bool rv;
+	
+	switch (spec)
+	{
+		case Ikuturso:
+		case Kraken:
+		case Nephilim:
+			rv=true;
+		break;
+		default: rv=false; break;
+	}
+	
+	return rv;	
+}
+

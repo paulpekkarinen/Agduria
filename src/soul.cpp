@@ -8,5 +8,6 @@ Soul::Soul(int st)
 {
 	const int prefgend=type.Get_Preferred_Gender();
 	gender=get_random_gender(prefgend);
+	age=get_random_age(type);
 }
 

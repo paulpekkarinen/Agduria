@@ -1,27 +1,23 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul K. Pekkarinen
 
 //Unit coords: x, y, z coordinates.
 
 #pragma once
 
-struct Point;
-class Way;
+#include "point.h"
 
-struct Coords
+struct Coords : public Point
 {
-	int x;
-	int y;
 	int z;
 
-	Coords() : x(0), y(0), z(0) { }
+	Coords() : Point(0, 0), z(0) { }
 	Coords(int sx, int sy);
 	Coords(int sx, int sy, int sz);
 	Coords(const Point &p);
 
 	void Move_Direction(int d);
 	void Move_Opposite_Direction(int d);
-	void Set(int sx, int sy, int sz);
-	void Set(int sx, int sy);
+	void Set_Location(int sx, int sy, int sz);
 
 	Coords& operator=(const Coords& r)
 	{

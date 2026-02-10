@@ -1,4 +1,4 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul K. Pekkarinen
 
 //Unit rectangle: Rectangle.
 

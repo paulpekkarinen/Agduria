@@ -14,6 +14,7 @@ private:
 	int age;
 
 public:
+	Age() : age(Average) { }
 	Age(int a) : age(a) { }
 
 	int Get() const { return age; }
