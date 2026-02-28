@@ -1,4 +1,4 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul Pekkarinen
 
 #include "command.h"
 #include "display.h"
@@ -28,6 +28,27 @@ Game::~Game()
 {
 	delete world;
 	delete player;
+}
+
+void Game::Menu()
+{
+	bool loop=true;
+
+	while (loop)
+	{
+		display.Title_Screen();
+
+		switch (keyboard->Get_Ascii())
+		{
+			case 'p':
+				Run();
+				loop=false; //exit directly in test version
+			break;
+			case 'k': display.Keybinds(); break;
+			case 'q': loop=false; break;
+			default: break;
+		}
+	}
 }
 
 void Game::Run()

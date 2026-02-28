@@ -1,4 +1,4 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul Pekkarinen
 
 //Unit game: Gameplay instance.
 
@@ -16,6 +16,7 @@ public:
 	Game();
 	~Game();
 
+	void Menu();
 	void Run();
 	void Set_State(int s);
 };

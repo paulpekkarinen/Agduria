@@ -1,6 +1,7 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul Pekkarinen
 
 #include <curses.h>
+#include <cstring>
 #include "gui.h"
 
 Gui::Gui(int w, int h)
@@ -37,6 +38,12 @@ void Gui::GotoXY(int x, int y)
 	move(y, x);
 }
 
+void Gui::GotoXYC(int x, int y, int color)
+{
+	GotoXY(x, y);
+	Set_Font_Color(color);
+}
+
 void Gui::Put_Char(char c)
 {
 	addch(c);
@@ -46,6 +53,17 @@ void Gui::Put_Char(char c, int color)
 {
 	Set_Font_Color(color);
 	Put_Char(c);
+}
+
+int Gui::Write_Centered_Text(int y, const char *txt)
+{
+	const int len=strlen(txt);
+	if (len>=width)
+		return 0;
+
+	const int x=(width-len)/2;
+
+	return Write_Text_To(x, y, txt);
 }
 
 int Gui::Write_Text(const char *txt)

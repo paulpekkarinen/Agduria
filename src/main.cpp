@@ -75,9 +75,11 @@ int main(int argc, char *argv[])
 	keyboard=new Keyboard;
 	keybinds=new Keybindings;
 
-	//create and run game instance (at the moment there is no title screen)
+	//create and run game instance
 	gameplay=new Game;
-	gameplay->Run(); //run game until exit
+
+	gameplay->Menu();
+
 	delete gameplay;
 
 	//delete subsystems in reverse order, just to be cool

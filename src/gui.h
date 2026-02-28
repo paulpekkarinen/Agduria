@@ -1,4 +1,4 @@
-//Agduria - Copyright 2009-2025 Paul Pekkarinen
+//Agduria - Copyright (C) Paul Pekkarinen
 
 //Unit gui: Graphical user interface.
 
@@ -28,10 +28,12 @@ public:
 	void Goto_First_Line();
 	void Goto_Last_Line();
 	void GotoXY(int x, int y);
+	void GotoXYC(int x, int y, int color);
 	void Put_Char(char c);
 	void Put_Char(char c, int color);
 	void Set_Font_Color(int c);
 	void Update_Screen();
+	int Write_Centered_Text(int y, const char *txt);
 	int Write_Text(const char *txt);
 	int Write_Text_To(int x, int y, const char *txt);
 };
